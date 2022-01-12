@@ -7,8 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          ref: ${{ github.event.client_payload.ref }}
-          
-      - run: echo ${{ github.event.client_payload.sha }}
-      - run: echo ${{ github.event.client_payload.test }}
+        with: 
+          ref: 'develop'
+
+      # Make changes to pull request here
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with: 
+          branch: 'main'
