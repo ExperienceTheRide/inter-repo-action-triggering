@@ -1,19 +1,17 @@
 name: Merge Pull Request
 
+
 on:
-  workflow_run:
-    types:
-      - completed
-    workflows:
-      - 'Create Pull Request'
+  pull_request_target:
+    types: [opened]
+    branches:
+      - main
 
 jobs:
-  merge-request:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+  auto-approve:
     runs-on: ubuntu-latest
     steps:
-      - name: Approve Pull Request
-        uses: juliangruber/approve-pull-request-action@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          number: 1
+    - uses: hmarr/auto-approve-action@v2
+      if: github.actor == 'github-actions[bot]'
+      with:
+        github-token: "${{ secrets.GITHUB_TOKEN }}"
