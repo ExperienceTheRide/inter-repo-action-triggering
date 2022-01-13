@@ -21,3 +21,7 @@ jobs:
       with:
         github-token: "${{ secrets.ACTIONS_BOTPAT }}"
         pull-request-number: ${{steps.open-pr.outputs.pr_number}}
+    - name: automerge
+      uses: "pascalgn/automerge-action@v0.14.3"
+      env:
+        GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
