@@ -19,5 +19,5 @@ jobs:
     - name: approve-pull-request
       uses: hmarr/auto-approve-action@v2
       with:
-        github-token: "${{ secrets.GITHUB_TOKEN }}"
+        github-token: "${{ secrets.ACTIONS_BOTPAT }}"
         pull-request-number: ${{steps.open-pr.outputs.pr_number}}
