@@ -1,4 +1,5 @@
-name: Repository Dispatch
+name: Create Pull Request
+
 on:
   repository_dispatch:
     types: [my-event]

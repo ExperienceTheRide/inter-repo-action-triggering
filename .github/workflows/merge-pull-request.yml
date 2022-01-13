@@ -1,0 +1,17 @@
+name: Merge Pull Request
+
+on:
+  check_suite:
+    types:
+      - completed
+    workflows:
+      - 'Create Pull Request'
+
+jobs:
+  merge-request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: merge-request
+        uses: ridedott/merge-me-action@v2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
