@@ -1,7 +1,7 @@
 name: Merge Pull Request
 
 on:
-  check_suite:
+  workflow_run:
     types:
       - completed
     workflows:
