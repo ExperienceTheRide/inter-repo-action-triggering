@@ -12,9 +12,8 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     steps:
-      - name: merge-request
-        uses: ridedott/merge-me-action@v2
+      - name: Approve Pull Request
+        uses: juliangruber/approve-pull-request-action@v1
         with:
-          GITHUB_LOGIN: github-actions
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_BOTPAT }}
-          MERGE_METHOD: MERGE
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          number: 1
