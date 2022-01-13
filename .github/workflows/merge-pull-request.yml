@@ -14,4 +14,5 @@ jobs:
       - name: merge-request
         uses: ridedott/merge-me-action@v2
         with:
+          GITHUB_LOGIN: github-actions
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
