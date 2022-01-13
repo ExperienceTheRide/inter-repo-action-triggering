@@ -16,6 +16,7 @@ jobs:
         source_branch: "develop"
         destination_branch: "main"
         github_token: ${{ secrets.GITHUB_TOKEN }}
+        pr_label: "auto-pr"
     - name: approve-pull-request
       uses: hmarr/auto-approve-action@v2
       with:
@@ -25,3 +26,5 @@ jobs:
       uses: "pascalgn/automerge-action@v0.14.3"
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+        MERGE_LABELS: "auto-pr"
+        PULL_REQUEST: ${{steps.open-pr.outputs.pr_number}}
