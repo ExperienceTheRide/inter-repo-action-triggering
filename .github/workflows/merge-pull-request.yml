@@ -1,11 +1,13 @@
 name: Merge Pull Request
 
 on:
-  workflow_run:
+  # Trigger on Pull Requests against the main branch.
+  pull_request_target:
+    branches:
+      - main
     types:
-      - completed
-    workflows:
-      - 'Create Pull Request'
+      - opened
+      - synchronize
 
 jobs:
   merge-request:
@@ -16,3 +18,4 @@ jobs:
         with:
           GITHUB_LOGIN: github-actions
           GITHUB_TOKEN: ${{ secrets.ACTIONS_BOTPAT }}
+          MERGE_METHOD: MERGE
