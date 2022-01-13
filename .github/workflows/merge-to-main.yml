@@ -2,7 +2,7 @@ name: Merge To Main
 
 on:
   repository_dispatch:
-    types: [my-event]
+    types: [deploy-staging-to-main]
 
 jobs:
   pull-request:
@@ -17,8 +17,8 @@ jobs:
         destination_branch: "main"
         github_token: ${{ secrets.GITHUB_TOKEN }}
         pr_label: "auto-pr"
-        pr_title: "Pulling ${{ github.ref }} into master" # Title of pull request
-        pr_body: ":crown: *An automated PR*"              # Full markdown support, requires pr_title to be set
+        pr_title: "Pulling latest staging into main" # Title of pull request
+        pr_body: ":crown:  *Automated PR*"           # Full markdown support, requires pr_title to be set
     - name: approve-pull-request
       uses: hmarr/auto-approve-action@v2
       with:
