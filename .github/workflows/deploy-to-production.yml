@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/azure/functions-action
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy Node.js project to Azure Function App - restricted-apis-test
+name: Production CI/CD
 
 on:
   push:
@@ -48,15 +48,3 @@ jobs:
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1FC11CDCAB144E6C926E1B68B33728D2 }}
-
-      - name: Get Release Number
-        id: new-version
-        uses: martinbeentjes/npm-get-version-action@master
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
-        with:
-          tag_name: ${{ steps.new-version.outputs.current-version}}
-          release_name: Release ${{ steps.new-version.outputs.current-version}}
