@@ -1,6 +1,6 @@
 {
   "name": "inter-repo-action-triggering",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "",
   "scripts": {
     "start": "func start",
