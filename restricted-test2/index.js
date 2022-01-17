@@ -1,6 +1,8 @@
+const MESSAGE = require('@experiencetheride/js-message-types')
+
 module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-    context.log('More code')
+    context.log(MESSAGE.busStatus())
 
     const name = (req.query.name || (req.body && req.body.name));
     const responseMessage = name

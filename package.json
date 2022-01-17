@@ -1,11 +1,12 @@
 {
   "name": "inter-repo-action-triggering",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "scripts": {
     "start": "func start",
     "test": "echo \"No tests yet...\""
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "dependencies": {
+    "@experiencetheride/js-message-types": "^1.1.0"
+  }
 }
