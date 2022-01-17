@@ -1,0 +1,11 @@
+{
+  "name": "inter-repo-action-triggering",
+  "version": "1.1.0",
+  "description": "",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
